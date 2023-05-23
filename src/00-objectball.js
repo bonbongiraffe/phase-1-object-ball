@@ -135,4 +135,27 @@ function numPointsScored(name) {
     }
 }
 
-console.log(numPointsScored('Alan Anderson'));
+function shoeSize(name) {
+    let object = gameObject()
+    for (let team in object) {
+        for (let player in object[team]["players"]) {
+            if (player === name)
+                return object[team]["players"][player]["Shoe"]
+        }
+    }
+}
+
+// - Build a function, `teamColors`, that takes in an argument of the team name and
+//   returns an array of that teams colors.
+
+function teamColors(searchTeamName){
+    let object = gameObject()
+    for (let team in object){
+        if (object[team]["teamName"] === searchTeamName)
+            return object[team]["colors"];
+    }
+}
+
+//console.log(gameObject().away.teamName === 'Charlotte Hornets')
+//console.log(gameObject().away.colors)
+//console.log(teamColors('Charlotte Hornets'));
