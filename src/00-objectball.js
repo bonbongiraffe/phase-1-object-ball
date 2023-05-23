@@ -159,3 +159,39 @@ function teamColors(searchTeamName){
 //console.log(gameObject().away.teamName === 'Charlotte Hornets')
 //console.log(gameObject().away.colors)
 //console.log(teamColors('Charlotte Hornets'));
+
+function teamNames() {
+    let object = gameObject()
+    let teamNames = []
+    for (let team in object) {
+        teamNames.push(object[team]["teamName"])
+    }
+    return teamNames
+}
+
+function playerNumbers(searchTeamName) {    
+    let object = gameObject()
+    let jerseyNumbers = []
+    for (let team in object){
+        if (object[team]["teamName"] === searchTeamName){
+            for (let player in object[team]["players"]){
+                jerseyNumbers.push(object[team]["players"][player]["Number"])
+            }
+        } 
+    }
+    return jerseyNumbers
+}
+
+function playerStats(searchName){
+    let object = gameObject()
+    for (let team in object) {
+        for (let player in object[team]["players"]) {
+            if (player === searchName)
+                return object[team]["players"][player]
+        }
+    }
+}
+console.log(playerStats("Alan Anderson"))
+// console.log(teamNames());
+//console.log(playerNumbers("Charlotte Hornets"))
+// console.log(gameObject().home.players["Alan Anderson"].Number)
