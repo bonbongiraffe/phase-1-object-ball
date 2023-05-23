@@ -191,7 +191,37 @@ function playerStats(searchName){
         }
     }
 }
-console.log(playerStats("Alan Anderson"))
+//console.log(playerStats("Alan Anderson"))
 // console.log(teamNames());
 //console.log(playerNumbers("Charlotte Hornets"))
 // console.log(gameObject().home.players["Alan Anderson"].Number)
+
+function bigShoeRebounds(){
+    let object = gameObject();
+    /**
+        1. extract shoe sizes
+        2. finding biggest shoe size
+        3. finding player associated with biggest shoe size
+        4. returning rebounds associated with that player
+     */
+    // index: first element is array of shoe sizes, second is array of rebounds
+    let index = [[],[]];
+    for (let team in object){
+        for (let player in object[team]["players"]){
+            //extract shoe size
+            index[0].push(object[team]["players"][player].Shoe)
+            //extract rebound count
+            index[1].push(object[team]["players"][player].Rebounds)
+        }
+    }
+    console.log(index);
+    let biggestShoeSize = 0;
+    let indexOfBiggestShoeSize;
+    for (let n = 0; n < index[0].length; n++){
+        if (index[0][n] > biggestShoeSize)
+            indexOfBiggestShoeSize = n;
+    }
+    return index[1][indexOfBiggestShoeSize];
+    //expect: 1 <-- from 'Jeff Adrien' of shoe size 18
+}
+//console.log(bigShoeRebounds());
