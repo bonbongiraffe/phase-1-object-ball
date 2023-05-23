@@ -116,4 +116,23 @@ function gameObject(){
     return asdf; 
 }
 
-console.log(gameObject());
+function homeTeamName() {
+    let object = gameObject();
+    return object["home"]["teamName"];
+}
+
+function numPointsScored(name) {
+    let object = gameObject()
+    /*
+    let pointsScored = home['players'].keys.find( playerName => {
+        return home.player.name === 'Brendan Haywood'
+    }*/
+    for (let team in object) {
+        for (let player in object[team]["players"]) {
+            if (player === name)
+                return object[team]["players"][player]["Points"]
+        }
+    }
+}
+
+console.log(numPointsScored('Alan Anderson'));
