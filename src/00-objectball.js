@@ -214,7 +214,7 @@ function bigShoeRebounds(){
             index[1].push(object[team]["players"][player].Rebounds)
         }
     }
-    console.log(index);
+    //console.log(index);
     let biggestShoeSize = 0;
     let indexOfBiggestShoeSize;
     for (let n = 0; n < index[0].length; n++){
@@ -224,4 +224,4 @@ function bigShoeRebounds(){
     return index[1][indexOfBiggestShoeSize];
     //expect: 1 <-- from 'Jeff Adrien' of shoe size 18
 }
-//console.log(bigShoeRebounds());
+console.log(bigShoeRebounds())
